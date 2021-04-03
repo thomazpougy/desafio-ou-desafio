@@ -1,0 +1,19 @@
+{
+    "cartas" : [
+        {
+            "desafio":"Jogue pedra, papel ou tesoura com a @.O vencedor faz um solo de bateria no perdedor.",
+            "prenda":"Tom 1 shot!",
+            "tipo": "randomico"
+        },
+        {
+            "desafio":"Aja como um cachorro e busque um objeto para a pessoa mais alta da roda.", 
+            "prenda":"Tome 2 shots!",
+            "tipo":"normal"
+        },
+        {
+            "desafio":"Cheire o pé de 3 pessoas da roda e classifique pelo fedor!", 
+            "prenda":"Tome 2 shots!",
+            "tipo":"normal"
+        }
+    ]
+}
