@@ -1,0 +1,22 @@
+{
+    "aleatorio" : [
+        {
+            "texto":"pessoa à sua frente"
+        },
+        {
+            "texto":"primeira pessoa"
+        },
+        {
+            "texto":"segunda pessoa"
+        },
+        {
+            "texto":"terceira pessoa"
+        },
+        {
+            "texto":"à sua esquerda"
+        },
+        {
+            "texto":"à sua direita"
+        }
+    ]
+}
