@@ -3,7 +3,7 @@
         {
             "desafio":"Jogue pedra, papel ou tesoura com a @. O vencedor faz um solo de bateria no perdedor.",
             "prenda":"Tome 1 shot!",
-            "tipo": "randomico"
+            "tipo": "aleatorio"
         },
         {
             "desafio":"Aja como um cachorro e busque um objeto para a pessoa mais alta da roda.", 
