@@ -1,5 +1,3 @@
-// $("h1").css("color","red")
-
 // função que faz o shuffle de um array
 Array.prototype.shuffle = function() {
 
