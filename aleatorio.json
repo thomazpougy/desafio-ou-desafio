@@ -4,19 +4,22 @@
             "texto":"pessoa à sua frente"
         },
         {
-            "texto":"primeira pessoa"
+            "texto":"primeira pessoa à sua esquerda"
         },
         {
-            "texto":"segunda pessoa"
+            "texto":"primeira pessoa à sua direita"
         },
         {
-            "texto":"terceira pessoa"
+            "texto":"segunda pessoa à sua esquerda"
         },
         {
-            "texto":"à sua esquerda"
+            "texto":"segunda pessoa à sua direita"
         },
         {
-            "texto":"à sua direita"
+            "texto":"terceira pessoa à sua esquerda"
+        },
+        {
+            "texto":"terceira pessoa à sua direita"
         }
     ]
 }
