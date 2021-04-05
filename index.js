@@ -1,3 +1,6 @@
+// use this link for production https://rawcdn.githack.com/thomazpougy/desafio-ou-desafio/94379cc6486f9c8a322fc5cffd11fa3caef5714e/index.js
+//use this link for development https://raw.githack.com/thomazpougy/desafio-ou-desafio/main/index.js
+
 // função que faz o shuffle de um array
 Array.prototype.shuffle = function() {
 
@@ -20,16 +23,6 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const total = 2;
-var nums = []
-for (i = 0; i <= total; i++) {
-    nums.push(i)
-}
-
-// ranNums = [];
-
-ranNums=nums.shuffle();
-
 $.ajax({
     url: "https://raw.githubusercontent.com/thomazpougy/desafio-ou-desafio/main/cartas.json",
     type: "get",
@@ -39,6 +32,7 @@ $.ajax({
         return;
   
       data_cartas = JSON.parse(response); // convert to object
+
     },
     error: function(err) {
       console.log(err);
@@ -60,8 +54,15 @@ $.ajax({
   }
 });
 
-x=-1
+const total = data_cartas.cartas.length;
+var nums = []
+for (i = 0; i < total; i++) {
+    nums.push(i)
+}
 
+ranNums=nums.shuffle();
+
+x=-1
 function definir_desafio() {
 
   x += 1;
