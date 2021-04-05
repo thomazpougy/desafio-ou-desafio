@@ -42,9 +42,14 @@ $.ajax({
       ranNums=nums.shuffle();
 
       x=-1
-      function definir_desafio() {
+      function definir_desafio(voltar) {
 
+        if(voltar){
+          x -= 1;
+        }else{
         x += 1;
+        }
+
         y = ranNums[x];
             
         desafio_texto = data_cartas.cartas[y].desafio;
@@ -55,7 +60,7 @@ $.ajax({
           desafio_texto = desafio_texto.replace("@",data_aleatorio.aleatorio[z].texto);
         }
         
-        $("#desafio").text(desafio_texto);
+        $("#desafio").html(desafio_texto);
         
         $("#prenda").text(prenda_texto);
 
@@ -63,35 +68,45 @@ $.ajax({
         
       }
 
-      n=0
       function virar() {
-        n++
-        if(n%2 == 0){
+        if($("#carta").hasClass("estado1")){
           // document.getElementById("carta").className = "estado1"
-          $("#carta").removeClass( "estado0" ).addClass( "estado1" );
+          $("#carta").removeClass( "estado1" ).addClass( "estado0" );
         }else{
           // document.getElementById("carta").className = "estado0"
-          $("#carta").removeClass( "estado1" ).addClass( "estado0" );
+          $("#carta").removeClass( "estado0" ).addClass( "estado1" );
         }
         
       }
 
-      function clicou(){
+      function clicou(voltar){
         virar();
         setTimeout(function(){
-          definir_desafio();
+          definir_desafio(voltar);
         },850);
         
       }
 
-      $('button').one("click",function(){
-        $("button").text("Próximo Desafio")
-        clicou();
+      $('#botao_desafio').one("click",function(){
+        $("#botao_desafio").text("Próximo Desafio");
+        $("#botao_voltar").fadeIn(400);
         setTimeout(function(){
           $("#desafio").css("font-weight", "normal")
         },850);
       }).click(function(){
-        clicou();
+        clicou(false);
+      });
+
+
+      $('#botao_voltar').click(function(){
+        if(window.confirm("Você realmente quer voltar um desafio?")){
+          if(x==0){
+            alert("Não há mais desafios para voltar");
+          }else{
+            clicou(true);
+          }
+        }
+        
       });
 
     },
