@@ -32,6 +32,67 @@ $.ajax({
         return;
   
       data_cartas = JSON.parse(response); // convert to object
+      
+      var total = data_cartas.cartas.length;
+      var nums = []
+      for (i = 0; i < total; i++) {
+          nums.push(i)
+      }
+
+      ranNums=nums.shuffle();
+
+      x=-1
+      function definir_desafio() {
+
+        x += 1;
+        y = ranNums[x];
+            
+        desafio_texto = data_cartas.cartas[y].desafio;
+        prenda_texto = data_cartas.cartas[y].prenda;
+
+        if(data_cartas.cartas[y].tipo == "aleatorio"){
+          z = getRandomIntInclusive(0,6)
+          desafio_texto = desafio_texto.replace("@",data_aleatorio.aleatorio[z].texto);
+        }
+        
+        $("#desafio").text(desafio_texto);
+        
+        $("#prenda").text(prenda_texto);
+
+        return;
+        
+      }
+
+      n=0
+      function virar() {
+        n++
+        if(n%2 == 0){
+          // document.getElementById("carta").className = "estado1"
+          $("#carta").removeClass( "estado0" ).addClass( "estado1" );
+        }else{
+          // document.getElementById("carta").className = "estado0"
+          $("#carta").removeClass( "estado1" ).addClass( "estado0" );
+        }
+        
+      }
+
+      function clicou(){
+        virar();
+        setTimeout(function(){
+          definir_desafio();
+        },850);
+        
+      }
+
+      $('button').one("click",function(){
+        $("button").text("Próximo Desafio")
+        clicou();
+        setTimeout(function(){
+          $("#desafio").css("font-weight", "normal")
+        },850);
+      }).click(function(){
+        clicou();
+      });
 
     },
     error: function(err) {
@@ -47,70 +108,9 @@ $.ajax({
     if (!response)
       return;
 
-    data_aleatorio = JSON.parse(response); // convert to object
+    data_aleatorio = JSON.parse(response); // convert to object;
   },
   error: function(err) {
     console.log(err);
   }
-});
-
-const total = data_cartas.cartas.length;
-var nums = []
-for (i = 0; i < total; i++) {
-    nums.push(i)
-}
-
-ranNums=nums.shuffle();
-
-x=-1
-function definir_desafio() {
-
-  x += 1;
-  y = ranNums[x];
-      
-  desafio_texto = data_cartas.cartas[y].desafio;
-  prenda_texto = data_cartas.cartas[y].prenda;
-
-  if(data_cartas.cartas[y].tipo == "aleatorio"){
-    z = getRandomIntInclusive(0,6)
-    desafio_texto = desafio_texto.replace("@",data_aleatorio.aleatorio[z].texto);
-  }
-  
-  $("#desafio").text(desafio_texto);
-  
-  $("#prenda").text(prenda_texto);
-
-  return;
-  
-}
-
-n=0
-function virar() {
-  n++
-  if(n%2 == 0){
-    // document.getElementById("carta").className = "estado1"
-    $("#carta").removeClass( "estado0" ).addClass( "estado1" );
-  }else{
-    // document.getElementById("carta").className = "estado0"
-    $("#carta").removeClass( "estado1" ).addClass( "estado0" );
-  }
-  
-}
-
-function clicou(){
-  virar();
-  setTimeout(function(){
-    definir_desafio();
-  },850);
-  
-}
-
-$('button').one("click",function(){
-  $("button").text("Próximo Desafio")
-  clicou();
-  setTimeout(function(){
-    $("#desafio").css("font-weight", "normal")
-  },850);
-}).click(function(){
-  clicou();
 });
