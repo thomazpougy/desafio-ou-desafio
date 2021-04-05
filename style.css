@@ -1,3 +1,6 @@
+/* use this for production https://rawcdn.githack.com/thomazpougy/desafio-ou-desafio/94379cc6486f9c8a322fc5cffd11fa3caef5714e/style.css */
+/* use this for development https://raw.githack.com/thomazpougy/desafio-ou-desafio/main/style.css */
+
 /* ELEMENTOS */
 body {
     font-family: Arial,sans-serif;
@@ -25,6 +28,8 @@ button{
     background-color: Gainsboro;
     margin: 0.5rem auto;
     padding-top: 1.5rem;
+    padding-right: 0.5rem;
+    padding-left: 00.5rem;
     text-align: center;
     font-weight: bolder;
 }
