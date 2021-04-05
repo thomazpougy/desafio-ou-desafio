@@ -87,7 +87,7 @@ $.ajax({
         
       }
 
-      $('#botao_desafio').one("click",function(){
+      $("#botao_desafio").one("click",function(){
         $("#botao_desafio").text("Próximo Desafio");
         $("#botao_voltar").fadeIn(400);
         setTimeout(function(){
@@ -98,14 +98,23 @@ $.ajax({
       });
 
 
-      $('#botao_voltar').click(function(){
-        if(window.confirm("Você realmente quer voltar um desafio?")){
+      $("#botao_voltar").click(function(){
+
+        if($("#botao_voltar").text() == "Voltar um desafio"){
+          $("#botao_voltar").text("Confirma?")
+        }else{
           if(x==0){
-            alert("Não há mais desafios para voltar");
+            $("#botao_voltar").text("Não há mais desafios para voltar");
+            setTimeout(function(){
+              $("#botao_voltar").text("Voltar um desafio");              
+            }, 3000);
           }else{
             clicou(true);
+            $("#botao_voltar").text("Voltar um desafio")
           }
         }
+
+        
         
       });
 
